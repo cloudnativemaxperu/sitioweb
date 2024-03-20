@@ -1,0 +1,189 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black !important;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    position: relative; 
+}
+/* Estilo para los puntos */
+.dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.6); 
+    border-radius: 50%;
+    animation: moveDots 1s linear infinite; 
+}
+/* Keyframes para la animación de los puntos */
+@keyframes moveDots {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px); 
+    }
+}
+#score-container {
+    color: white; 
+    font-size: 50px;
+   
+}
+#score-text {
+    color: white; 
+    font-size: 30px; 
+    margin-left: 0px; 
+}
+
+#title-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+#game-title {
+    font-size: 6em;
+    animation: blinkTitle 0.5s infinite alternate;
+}
+#game-container {
+    position: relative;
+}
+#gameCanvas {
+    border: 2px solid black; 
+    width: 600px; 
+    height: 600px; 
+    animation: blinkBorder 0.5s infinite alternate;
+}
+@keyframes blinkBorder {
+    0% {
+        border-color: black;
+    }
+    100% {
+        border-color: red;
+    }
+}
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #FF5733, #FFE933, #33FF57, #33D1FF, #F233FF);
+    background-size: 400% 400%;
+    animation: changeBackground 10s ease infinite;
+}
+
+@keyframes changeBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; 
+    }
+
+    #gameCanvas {
+        width: 300px; 
+        height: 300px; 
+    }
+}
+/*-----------------------------------------------------------------*/
+#buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.button-animation {
+    position: relative;
+    background-color: red; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11.5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+    overflow: hidden;
+}
+.button-animation:hover {
+    background-color: #8E44AD ; 
+}
+
+.button-animation::before,
+.button-animation::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #000;
+    border-radius: 50%;
+    animation: moveDots 1s infinite alternate;
+}
+.button-animation::before {
+    top: 50%;
+    left: 20%;
+}
+
+.button-animation::after {
+    top: 20%;
+    left: 50%;
+}
+/*-----------------------------------------------------------------*/
+/*puntuacion anmiamdo a colores*/
+.score-animation {
+    animation: moveScore 2s infinite alternate; 
+}
+
+@keyframes bounceButton {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes moveScore {
+    0% {
+        transform: translateX(0);
+        color: red;
+    }
+    25% {
+        transform: translateX(5px);
+        color: orange;
+    }
+    50% {
+        transform: translateX(0);
+        color: yellow;
+    }
+    75% {
+        transform: translateX(-5px);
+        color: green;
+    }
+    100% {
+        transform: translateX(0);
+        color: blue;
+    }
+}
+
+
+
+
